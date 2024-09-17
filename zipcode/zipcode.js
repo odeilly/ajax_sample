@@ -1,6 +1,6 @@
 window.onload = (event) => {
 
-	(function($) {
+	(($) => {
 
 		$("#search-button").on("click", () => {
 			const resultsArea = $("#results").empty().hide();
