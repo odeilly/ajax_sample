@@ -1,7 +1,7 @@
 (($) => {
 	$(window).on("load", () => {
 		$("#search-button").on("click", (event) => {
-			$(event.currentTarget).prop("disabled", true);
+			const target = $(event.currentTarget).prop("disabled", true);
 			const resultsArea = $("#results").empty().hide();
 			$.ajax({
 				type: "GET",
@@ -15,11 +15,11 @@
 			.done((data) => {
 				success(data, resultsArea);
 				resultsArea.slideDown("slow");
-				$(event.currentTarget).prop("disabled", false);
+				target.prop("disabled", false);
 			})
 			.fail(() => {
 				console.log("error");
-				$(event.currentTarget).prop("disabled", false);
+				target.prop("disabled", false);
 			});
 			return false;
 		});
