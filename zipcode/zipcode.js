@@ -28,18 +28,18 @@
 		const success = (data, resultsArea) => {
 			console.log(data);
 			const res = JSON.parse(data);
-			if (res.status === 200) {
-				if (!res.results) {
-					resultsArea.append(makeErrorElement("該当住所なし。"));
-					return;
-				}
-				resultsArea.append(`<div>検索件数：${res.results.length}</div>`);
-				res.results.forEach((result) => {
-					resultsArea.append(makeResultElement(result));
-				});
-			} else {
+			if (res.status !== 200) {
 				resultsArea.append(makeErrorElement(res.message));
+				return;
 			}
+			if (!res.results) {
+				resultsArea.append(makeErrorElement("該当住所なし。"));
+				return;
+			}
+			resultsArea.append(`<div>検索件数：${res.results.length}</div>`);
+			res.results.forEach((result) => {
+				resultsArea.append(makeResultElement(result));
+			});
 		}
 
 		const makeResultElement = (result) => {
