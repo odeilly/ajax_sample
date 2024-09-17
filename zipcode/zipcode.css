@@ -1,0 +1,16 @@
+#results {
+    display: none;
+}
+
+table.result {
+    margin-bottom: 1em;
+}
+
+table.result, table.result * {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.error {
+    color: red;
+}

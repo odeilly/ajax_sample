@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<meta charset='utf-8'>
+	<title>郵便番号検索</title>
+	<link href="./zipcode.css" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="./zipcode.js"></script>
+</head>
+<body>
+	<h1>郵便番号検索</h1>
+	<div>
+		参考：<a href="https://zipcloud.ibsnet.co.jp/doc/api" target="_blank">郵便番号検索API</a>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td>zipcode</td>
+				<td>
+					<input type="text" name="zipcode">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					limit
+				</td>
+				<td>
+					<select name="limit">
+						<option value="20" selected>20</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<button name="search" value="search" id="search-button">検索</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<h2>検索結果↓</h2>
+	</div>
+	<div id="results"></div>
+</body>
+</html>
