@@ -19,6 +19,7 @@
 			})
 			.fail(() => {
 				console.log("error");
+				resultsArea.append('<span class="error">エラーが発生しました。</span>');
 				target.prop("disabled", false);
 			});
 			return false;
