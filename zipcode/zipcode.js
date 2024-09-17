@@ -1,7 +1,5 @@
-window.onload = (event) => {
-
-	(($) => {
-
+(($) => {
+	$(window).on("load", () => {
 		$("#search-button").on("click", (event) => {
 			$(event.currentTarget).prop("disabled", true);
 			const resultsArea = $("#results").empty().hide();
@@ -77,6 +75,5 @@ window.onload = (event) => {
 				resultsArea.append(`<span class="error">${res.message}</span>`);
 			}
 		}
-
-	})(jQuery);
-}
+	});
+})(jQuery);
