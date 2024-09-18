@@ -1,10 +1,11 @@
 (($) => {
 	$(window).on("load", () => {
 
+		const $searchButton = $("#search-button");
 		const $resultsArea = $("#results");
 
-		$("#search-button").on("click", (event) => {
-			const $searchButton = $(event.currentTarget).prop("disabled", true);
+		$searchButton.on("click", (event) => {
+			$searchButton.prop("disabled", true);
 			$resultsArea.empty().hide();
 			$.ajax({
 				type: "GET",
@@ -18,8 +19,8 @@
 			.done(success)
 			.fail(error)
 			.always(() => {
-				$searchButton.prop("disabled", false);
 				$resultsArea.slideDown("slow");
+				$searchButton.prop("disabled", false);
 			});
 			return false;
 		});
