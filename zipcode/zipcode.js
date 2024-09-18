@@ -5,7 +5,7 @@
 
 		$("#search-button").on("click", (event) => {
 			const $searchButton = $(event.currentTarget).prop("disabled", true);
-			$resultsArea.empty().hide()
+			$resultsArea.empty().hide();
 			$.ajax({
 				type: "GET",
 				url: "https://zipcloud.ibsnet.co.jp/api/search",
