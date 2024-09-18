@@ -1,11 +1,11 @@
 (($) => {
 	$(window).on("load", () => {
 
-		const resultsArea = $("#results");
+		const $resultsArea = $("#results");
 
 		$("#search-button").on("click", (event) => {
-			const searchButton = $(event.currentTarget).prop("disabled", true);
-			resultsArea.empty().hide()
+			const $searchButton = $(event.currentTarget).prop("disabled", true);
+			$resultsArea.empty().hide()
 			$.ajax({
 				type: "GET",
 				url: "https://zipcloud.ibsnet.co.jp/api/search",
@@ -15,16 +15,11 @@
 				},
 				datatype: "json"
 			})
-			.done((response) => {
-				success(response);
-			})
-			.fail(() => {
-				console.log("error");
-				resultsArea.append(makeErrorElement("エラーが発生しました。"));
-			})
+			.done(success)
+			.fail(error)
 			.always(() => {
-				searchButton.prop("disabled", false);
-				resultsArea.slideDown("slow");
+				$searchButton.prop("disabled", false);
+				$resultsArea.slideDown("slow");
 			});
 			return false;
 		});
@@ -33,17 +28,22 @@
 			console.log(response);
 			const data = JSON.parse(response);
 			if (data.status !== 200) {
-				resultsArea.append(makeErrorElement(data.message));
+				$resultsArea.append(makeErrorElement(data.message));
 				return;
 			}
 			if (!data.results) {
-				resultsArea.append(makeErrorElement("該当住所なし。"));
+				$resultsArea.append(makeErrorElement("該当住所なし。"));
 				return;
 			}
-			resultsArea.append(`<div>検索件数：${data.results.length}</div>`);
+			$resultsArea.append(`<div>検索件数：${data.results.length}</div>`);
 			data.results.forEach((result) => {
-				resultsArea.append(makeResultElement(result));
+				$resultsArea.append(makeResultElement(result));
 			});
+		}
+
+		const error = () => {
+			console.log("error");
+			$resultsArea.append(makeErrorElement("エラーが発生しました。"));
 		}
 
 		const makeResultElement = (result) => {
