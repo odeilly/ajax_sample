@@ -15,7 +15,7 @@ public class PersonController {
 		var person = new Person();
 		person.setId(10);
 		person.setName("Odeilly");
-		person.setAge(50);;
+		person.setAge(50);
 		return person;
 	}
 }
