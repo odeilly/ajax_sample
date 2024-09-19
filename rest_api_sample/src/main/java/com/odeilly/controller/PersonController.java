@@ -14,8 +14,8 @@ public class PersonController {
 	public Person getSamplePerson() {
 		var person = new Person();
 		person.setId(10);
-		person.setAge(50);;
 		person.setName("Odeilly");
+		person.setAge(50);;
 		return person;
 	}
 }
