@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.odeilly.domain.Person;
 
 @RestController
-@RequestMapping("/persons")
+@RequestMapping("/person")
 public class PersonController {
 
 	@GetMapping(path = "/getSamplePerson")
