@@ -2,9 +2,9 @@
 	
 	$(window).on("load", () => {
 		
-		$("[name=button-get-sample-person]").on("click", () => {
-			$("[name=button-get-sample-person]").prop("disabled", true);
-			$("#result-get-sample-person").empty().hide();
+		$("[name=button-get-sample-person]").on("click", (event) => {
+			const $target = $(event.currentTarget).prop("disabled", true);
+			const $resultArea = $("#result-get-sample-person").empty().hide();
 			$.ajax({
 				url: $("#url-get-sample-person").attr("action")
 			})
@@ -21,11 +21,11 @@
 						<dd>${person.age}</dd>
 					</dl>
 				`;
-				$("#result-get-sample-person").append(resultHtml);
+				$resultArea.append(resultHtml);
 			})
 			.always(() => {
-				$("#result-get-sample-person").show();
-				$("[name=button-get-sample-person]").prop("disabled", false)
+				$resultArea.show();
+				$target.prop("disabled", false)
 			});
 			return false;
 		});
