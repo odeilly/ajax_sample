@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+	<title>Person</title>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="../../static/js/person/person.js" th:src="@{/js/person/person.js}"></script>
+</head>
+<body>
+	<h1>Person</h1>
+	<hr>
+	<div>
+		<h1>Get Sample Person</h1>
+		<form th:action="@{/api/person/getSamplePerson}" id="url-get-sample-person">
+			<button name="button-get-sample-person" type="button">実行</button>
+		</form>
+		<div id="result-get-sample-person" style="display: none;"></div>
+	</div>
+</body>
+</html>
