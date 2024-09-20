@@ -13,8 +13,7 @@
 				data: {
 					zipcode: $('[name="zipcode"]').val(),
 					limit: $('[name="limit"]').val()
-				},
-				datatype: "json"
+				}
 			})
 			.done(success)
 			.fail(error)
