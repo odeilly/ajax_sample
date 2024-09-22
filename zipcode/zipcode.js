@@ -2,7 +2,7 @@
 	const $searchButton = $("#search-button");
 	const $resultsArea = $("#results");
 
-	$searchButton.on("click", (event) => {
+	$searchButton.on("click", () => {
 		$searchButton.prop("disabled", true);
 		$resultsArea.empty().hide();
 		$.ajax({
