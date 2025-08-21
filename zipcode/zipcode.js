@@ -1,8 +1,8 @@
-(($) => {
+(function($) {
 	const $searchButton = $("#search-button");
 	const $resultsArea = $("#results");
 
-	$searchButton.on("click", () => {
+	$searchButton.on("click", function() {
 		$searchButton.prop("disabled", true);
 		$resultsArea.empty().hide();
 		$.ajax({
@@ -22,7 +22,7 @@
 		return false;
 	});
 
-	const success = (response) => {
+	const success = function(response) {
 		console.log(response);
 		const data = JSON.parse(response);
 		if (data.status !== 200) {
@@ -39,12 +39,12 @@
 		});
 	}
 
-	const error = () => {
+	const error = function() {
 		console.log("error");
 		$resultsArea.append(makeErrorElement("エラーが発生しました。"));
 	}
 
-	const makeResultElement = (result) => {
+	const makeResultElement = function(result) {
 		return `
 			<table class="result">
 				<tr>
@@ -82,7 +82,7 @@
 			</table>`;
 	}
 
-	const makeErrorElement = (message) => {
+	const makeErrorElement = function(message) {
 		return `<span class="error">${message}</span>`;
 	}
 })(jQuery);
